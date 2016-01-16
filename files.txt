@@ -1,4 +1,4 @@
-INCLUDE YOUR QUICKSCRIPT FILES HERE, IN A SET OF ANGULAR BRACKETS.
+INCLUDE YOUR QUICKSCRIPT FILES HERE, IN A SET OF ANGLE BRACKETS.
 ONLY THE FILES HAVING ".qs" EXTENSION WILL BE INCLUDED.
 
 
@@ -27,7 +27,9 @@ ONLY THE FILES HAVING ".qs" EXTENSION WILL BE INCLUDED.
 <databases/wordnet-encyclopedia/encyclopedia_20.qs>
 <databases/wordnet-encyclopedia/encyclopedia_21.qs>
 <databases/wordnet-encyclopedia/encyclopedia_22.qs>
-<databases/wordnet-encyclopedia/encyclopedia_23.qs >
-<databases/wordnet-encyclopedia/encyclopedia_24.qs >
+<databases/wordnet-encyclopedia/encyclopedia_23.qs>
+<databases/wordnet-encyclopedia/encyclopedia_24.qs>
 
+
+<databases/pickup.qs>
 
