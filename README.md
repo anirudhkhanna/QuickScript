@@ -3,17 +3,25 @@
 QuickScript is a simple and easy to learn special-purpose language which can be used to design artificial conversational agents and other programs that involve textual dialogue between humans and computers.
 QuickScript can be used to create something as plain as a dictionary and something as clever as a chatbot!
 
+![QuickScript Logo](logo.png)
+
 ### What's so special?
 QuickScript is special because of its simplicity and is intended to generate interest in beginners in the field of virtual conversational entities, more popularly known as chatbots.
 
-The features of QuickScript are inspired by AIML, but both the features and the way of writing code has been even more simplified. QuickScript not only provides the basic features that one would appreciate when starting his/her own chatbot, but it also simplifies the task to such an extent that anyone can playfully learn the fundamentals of this art.
+The features of QuickScript are inspired by AIML, but both the features and the way of writing code has been even more simplified. QuickScript not only provides the basic gear that one would appreciate when starting his/her own chatbot, but it also simplifies the task to such an extent that anyone can playfully learn the fundamentals of this art.
 
 ### Behind the Idea
 In 2015, I started working on a chatbot in AIML and was really impressed by the features it offers for the very purpose. I wanted to spread the field of virtual conversational agents to even more people and so I decided to take some wonderful features of AIML (wild cards, SRAI etc.), simplify them, and make the easiest script for designing such entities.
 
 ### The QuickScript Engine
-One can run QuickScript code in the QS Engine, which is written in C and compiled on GNU GCC Compiler.
+One can run QuickScript code in the QS Engine, which is written in C and compiled on Code::Blocks 13.12 (MinGW GCC Compiler 4.8).
 
+### License
+This project is licensed under the terms of the GNU General Public License version 3 available online under: http://www.gnu.org/licenses/gpl-3.0.html
+
+This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
 # First Steps
 
@@ -31,20 +39,20 @@ Now save the file with a [dot]qs extension, for example “mynewfile.qs”, and 
 **Note:** Remember to give a line feed between the first and the second line. Newlines are the backbone of QuickScript code. They work in the same way as the semicolon works in C language.
 
 ### Including a QS File in the QuickScript Engine
-Now we need to include this file into the list of files which the QS Engine will interpret. There will be a text file in the QuickScript folder, named “files.txt”. This file contains the names (and paths, if necessary) of the QS files to be run. If there is no “files.txt”, create a text file and save it as “files.txt”.
-Open this text file and write the name (and relative path, if required) of your newly created QuickScript file in angular brackets ‘<’ and ‘>’ in such a way:
+Now we need to include this file into the list of files which the QS Engine will interpret. Look for a text file in the QuickScript project’s folder, named “files.txt”. This file contains the names (and paths, if necessary) of the QS files to be run. (By chance, if there is no such file then you need to create a text file there and save it as “files.txt”.)
+Open this text file and write the name (and relative path, if required) of your newly created QuickScript file in a pair of angle brackets ‘<’ and ‘>’ in such a way:
 
 ```
 <path of file.../filename.qs>
 ```
 
-For example, if your QuickScript file is named “mynewfile.qs” and it is in the folder where the QS Engine is itself placed, then writing the file name will be sufficient:
+For example, if your QuickScript file is named “mynewfile.qs” and it is in the folder where the QS Engine is placed itself, then writing the file name in “files.txt” will be sufficient:
 
 ```
 <mynewfile.qs>
 ```
 
-Now suppose the QuickScript file is in a folder named “My QuickScript Files”, which is in turn in the main QuickScript folder itself, then we need to include the relative path also:
+Now suppose your file is in a folder named “My QuickScript Files”, which is in turn placed in the main QuickScript folder itself, then we need to include the relative path also:
 
 ```
 <My QuickScript Files/mynewfile.qs>
@@ -56,12 +64,12 @@ Or, you may give the complete path to the file, somewhat like this:
 <C:/QuickScript/My QuickScript Files/mynewfile.qs>
 ```
 
-After making an entry of your QS file in “files.txt”, save the changes and run “QuickScript.exe”. It is the program that will run all the QuickScript code written in the file(s) you have included. It is written in C and compiled in the GNU GCC Compiler. However, the source code in C is also available.
-After clicking “QuickScript.exe”, the QuickScript interface should be started. Press ENTER to run the code of included QS files. If the file is successfully included, the code should be interpreted without any errors and the program will prompt the user to enter a query.
+After making an entry of your QS file in “files.txt”, save the changes and run “QuickScript.exe” to start the QS Engine. It is the program that will understand all the QuickScript code written in the file(s) you have included.
+The QS Engine is written in C and compiled on Code::Blocks 13.12 (MinGW GCC Compiler 4.8). The source code is available under the GNU General Public License v3.0.
+After starting the QuickScript interface, press ENTER to load all the included QS files and get ready to chat with the program. If the file is successfully included, the code should be interpreted without any errors and the program will prompt the user to enter a query.
 Write “Hello” and press ENTER. The program, as per the above code, should print “Hello, user!” in response.
 
-**Note:** See that a number of files can be included at a time. The response of the program depends on the order of writing the file names in “files.txt” – the topmost file will be searched for any input first, then the file below it and so on. So, if the same pattern like “Hello” is written in two QuickScript files, the response given in the file which is included first in “files.txt” (going from top to bottom) will take precedence.
-
+**Note:** See that a number of files can be included at a time. The response of the program depends on the order of writing the file names in “files.txt” – the topmost file will be searched for any input first, then the file below it and so on. So, if the same pattern like `>> HELLO` is in two QuickScript files, the response given in the file which is included first in “files.txt” (going from top to bottom) will take precedence.
 
 # QuickScript Syntax
 
@@ -122,7 +130,7 @@ Example:
 >> HELLO
 ## Hello! How are you?
 
-  // Now redirecting similar patterns with SRAI:
+// Now redirecting similar patterns with SRAI:
 >> HI
 == HELLO
 >> HOLA
@@ -229,7 +237,7 @@ Example:
 ```
 
 **SRAI in QuickScript:** As shown in the above example, SRAI can be used to redirect one pattern to another. When SRAI is used with a pattern, then that pattern cannot have its own replies.
-As compared to the SRAI of AIML, the functionality of SRAI in QuickScript is relatively limited and simple. I expect it to be more extensive in further updates.
+As compared to the SRAI of AIML, the functionality of SRAI in QuickScript is relatively limited and simple.
 
 ### HOW IS SRAI SEARCHED?
 When a SRAI prefix is encountered after a pattern, the redirected pattern is searched IN THE SAME FILE FIRST. If the pattern is not found in that very file, then it is searched IN ALL THE INCLUDED FILES starting from the first included file as any normal pattern is searched in QuickScript.
@@ -238,27 +246,27 @@ Consider two QS files which are included in the Engine at a time: “first.qs”
 
 Let the contents of “first.qs” be the following:
 ```
-	// FIRST.QS
+// FIRST.QS
 
-	>> BIRD
-	## Birds are winged, warm-blooded, egg-laying vertebrates.
+>> BIRD
+## Birds are winged, warm-blooded, egg-laying vertebrates.
 ```
 
 And the contents of “second.qs” are the following:
 ```
-  // SECOND.QS
+// SECOND.QS
 	
-	>> WHAT IS A BIRD
-	== BIRD
-	>> BIRD
-	## Birds are cute, feathery creatures which mostly can fly.
+>> WHAT IS A BIRD
+== BIRD
+>> BIRD
+## Birds are cute, feathery creatures which mostly can fly.
 ```
 
 For an input “What is a bird”, the output will be “Birds are cute, feathery creatures which mostly can fly.” as given in “second.qs”, because the SRAI is satisfied in the same file here. Now if the pattern is removed and “second.qs” is changed like this:
 ```
-	// SECOND.QS
-	>> WHAT IS A BIRD
-	== BIRD
+// SECOND.QS
+>> WHAT IS A BIRD
+== BIRD
 ```
 
 In this case, the SRAI pattern “BIRD” would not match in the same file and then, every file will be searched for it from the start. The result would be “Birds are winged, warm-blooded, egg-laying vertebrates.” as found in the file “first.qs”.
@@ -268,18 +276,18 @@ We know that the query “exit” is used to go back to the starting screen of t
 
 Example:
 ```
-  >> BYE
-	== EXIT
-	>> GO BACK
-	== EXIT
-	>> ABORT
-	== EXIT
+>> BYE
+== EXIT
+>> GO BACK
+== EXIT
+>> ABORT
+== EXIT
 ```
 
 Many times while designing your chatbot, you will see SRAI is a very useful and handy concept and apart from making your program much cleverer, it can save you from writing a lot of redundant code.
 
 **Note:** The danger of SRAI is that it permits the botmaster to create infinite loops.
-For instance, entries like >>x, ==y and >>y, ==x will pose the risk of program entering an infinite loop.
+For instance, entries like `>>x`, `==y` and `>>y`, `==x` will pose the risk of program entering an infinite loop.
 
 ## Wildcards
 The asterisk (*) and underscore (_) symbols are two wildcard characters used in QuickScript. The meaning of a QuickScript wildcard, wherever it occurs, is "anything may or may not occur here".
@@ -366,3 +374,5 @@ Which results in this:
 USER: A pencil can be used for writing and drawing.
 BOT: For writing and drawing.
 ```
+
+**Note:** As of now, not more than two wildcard text replacements (as shown above) can be done, although any number of wildcard characters can be used in a pattern.
