@@ -68,37 +68,8 @@ void home_screen()      /* .......... Home screen with main menu .......... */
     \t   / /                                                | |          \n\r\
     \t  /_/                                                 |_|          \n\r\
     \n\
-    \t\t    Markup for Artificial Intelligence Design\n\r\
-    \t\t_________________________________________________\
-    \n\n\r\
-    \tDEVELOPER: Anirudh Khanna | CONTACT: anirudhkhanna.cse@gmail.com\n\r",
-
-    "\n\
-    \t                _        _      _____              _         _     \n\r\
-    \t               (_)      | |    / ____|            (_)       | |    \n\r\
-    \t   __ _  _   _  _   ___ | | __| (___    ___  _ __  _  _ __  | |_   \n\r\
-    \t  / _` || | | || | / __|| |/ / \\___ \\  / __|| '__|| || '_ \\ | __|  \n\r\
-    \t | (_| || |_| || || (__ |   <  ____) || (__ | |   | || |_) || |_   \n\r\
-    \t  \\__, | \\__,_||_| \\___||_|\\_\\|_____/  \\___||_|   |_|| .__/  \\__|  \n\r\
-    \t     | |                                             | |           \n\r\
-    \t     |_|                                             |_|           \n\r\
-    \n\
-    \t\t    Markup for Artificial Intelligence Design\n\r\
-    \t\t_________________________________________________\
-    \n\n\r\
-    \tDEVELOPER: Anirudh Khanna | CONTACT: anirudhkhanna.cse@gmail.com\n\r",
-
-    "\n\
-    \t                               ____                                \n\r\
-    \t                _        _    / ___|              _         _     \n\r\
-    \t   __ _  _   _ (_)  ___ | | _| (___    ___  _ __ (_) _ __  | |_   \n\r\
-    \t  / _` || | | || | / __|| |/ /\\___ \\  / __|| '__|| || '_ \\ | __|  \n\r\
-    \t | (_| || |_| || || (__ |   <  ___) || (__ | |   | || |_) || |_   \n\r\
-    \t  \\__, | \\__,_||_| \\___||_|\\_\\|____/  \\___||_|   |_|| .__/  \\__|  \n\r\
-    \t     |_|                                            |_|           \n\r\
-    \n\
-    \t\t    Markup for Artificial Intelligence Design\n\r\
-    \t\t_________________________________________________\
+    \t\t    For creating virtual conversational programs\n\r\
+    \t\t___________________________________________________\
     \n\n\r\
     \tDEVELOPER: Anirudh Khanna | CONTACT: anirudhkhanna.cse@gmail.com\n\r"
     };
@@ -153,7 +124,6 @@ void home_screen()      /* .......... Home screen with main menu .......... */
                 DELAY(50);
                 printf("\n\tProgram will now exit.\n\n\tThank you for using quickScript!\n\t________________________________\n\t");
                 getch();
-                printf("\n");
                 exit(0);
                 break;
 
@@ -161,8 +131,8 @@ void home_screen()      /* .......... Home screen with main menu .......... */
                 CLEARSCREEN();
                 puts(heading);
                 DELAY(50);
-                printf("\n\tInvalid choice. Please try again...\n\t___________________________________\n\t");
-                DELAY(1000);
+                printf("\n\tInvalid choice!\n\n\tPress any key to go back and try again...\n\t_________________________________________\n\t");
+                getch();
                 CLEARSCREEN();
                 puts(heading);
                 break;
@@ -203,10 +173,10 @@ void about_quickScript()    /* .......... Show basic information about the quick
         conversational agents and other programs that involve textual dialogue \n\r\
         between humans and computers.\
         \n\n\r\
-        Licensed under the terms of the GNU General Public License v3.0 \n\r\
-        available online under: http://www.gnu.org/licenses/gpl-3.0.html\
-        \n\n\n\r\
-        (FIND MORE INFORMATION IN THE QUICKSCRIPT DOCUMENTATION.)";
+        Find more about the project on it's GitHub repository:\n\r\
+        https://github.com/anirudhkhanna/QuickScript\n\n\r\
+        Released under the GNU General Public License v3.0 \n\r\
+        available here: http://www.gnu.org/licenses/gpl-3.0.html";
 
     puts(title);
     puts(info);
@@ -228,8 +198,9 @@ void run_quickScript()      /* .......... Execute quickScript files .......... *
     prepare_temp_files(filenames);     //Removing all blank newlines, validating the syntax, drafting the files into temp files.
 
     CLEARSCREEN();
-    printf("\n\n\tWelcome. ");
-    printf("\tTOTAL %lu FILES.\t", totalFiles);
+    printf("\n\tWELCOME.");
+    printf(" TOTAL %lu FILES INCLUDED.", totalFiles);
+    printf(" TO GO BACK, TYPE \"EXIT\".");
 
 // TAKE USER QUERY AS INPUT:
 // -------------------------
@@ -239,7 +210,7 @@ void run_quickScript()      /* .......... Execute quickScript files .......... *
         printf("\n\n\n\tYOU:\t");
         fgets(userquery, 10000, stdin);
         userquery[(strlen(userquery)-1)]='\0';      //We need to remove the extra newline taken by userquery[] because of using fgets().
-        trim_spaces_and_punctuation(userquery);     //Trim extra spaces and remove periods, commas, question marks and exclamation marks in userquery[].
+        trim_spaces_and_punctuation(userquery);     //Trim extra spaces and remove punctuation marks (except apostrophe and hyphen) in userquery[].
     }
     foundFlag=0;
     sraiFlag=0;
@@ -391,7 +362,9 @@ void reply_to_matched_pattern( FILE *fp )       /* .......... fetch valid replie
         reply[i][j]='\0';
 
         find_and_replace_substrings(reply[i], "[star]", wildcardstar);
+        find_and_replace_substrings(reply[i], "[STAR]", wildcardstar);
         find_and_replace_substrings(reply[i], "[underscore]", wildcardunderscore);
+        find_and_replace_substrings(reply[i], "[UNDERSCORE]", wildcardunderscore);
 
         i++;
         cnt++;
@@ -860,7 +833,9 @@ int check_for_srai( FILE *fp )      /* .......... If a "==" entry succeeds a pat
         userquery[indUQ]='\0';
 
         find_and_replace_substrings(userquery, "[star]", wildcardstar);
+        find_and_replace_substrings(userquery, "[STAR]", wildcardstar);
         find_and_replace_substrings(userquery, "[underscore]", wildcardunderscore);
+        find_and_replace_substrings(userquery, "[UNDERSCORE]", wildcardunderscore);
 
         return 1;
     }
@@ -1079,19 +1054,20 @@ void find_and_replace_substrings( char *str, char *sub, char *rep )     /* .....
 void trim_spaces_and_punctuation( char *str )   /* .......... Remove extra spaces, drop punctuation marks and symbols .......... */
 {
     int i, j;
-// TRIM EXTRA SPACES:
-// ------------------
-    trim_extra_spaces(str);
 
-// REMOVE SOME PUNCTUATION (PERIODS, COMMAS, QUESTION MARKS, EXCLAMATION MARKS):
-// -----------------------------------------------------------------------------
+// REMOVE SOME PUNCTUATION (EXCEPT APOSTROPHE AND HYPHEN):
+// -------------------------------------------------------
     j=0;
     for(i=0; str[i]!='\0'; i++)
     {
-        if(!(str[i]=='.' || str[i]==',' || str[i]=='?' || str[i]=='!'))
+        if((str[i]>='a' && str[i]<='z') || (str[i]>='A' && str[i]<='Z') || (str[i]>='0' && str[i]<='9') || (str[i]==' ') || (str[i]=='\'') || (str[i]=='-'))
             str[j++]=str[i];
     }
     str[j]='\0';
+
+// TRIM EXTRA SPACES:
+// ------------------
+    trim_extra_spaces(str);
 }
 
 
