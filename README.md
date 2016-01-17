@@ -3,7 +3,7 @@
 QuickScript is a simple and easy to learn special-purpose language which can be used to design artificial conversational agents and other programs that involve textual dialogue between humans and computers.
 QuickScript can be used to create something as plain as a dictionary and something as clever as a chatbot!
 
-![QuickScript Logo](logo.png)
+![QuickScript Logo](https://github.com/anirudhkhanna/QuickScript/raw/master/logo.png)
 
 ### What's so special?
 QuickScript is special because of its simplicity and is intended to generate interest in beginners in the field of virtual conversational entities, more popularly known as chatbots.
