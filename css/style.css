@@ -51,6 +51,15 @@ h1, h2, h3, h4, h5, h6 {
 	color: white;
 }
 
+@media screen and (max-width:480px) {
+	.btndownload {
+		border-radius: 5px;
+		background-color: #46ADE0;
+		color: white;
+		padding: 5px;
+	}
+}
+
 
 /*-- Element Slide-Up Animation --*/
 .slideanimup {
@@ -206,6 +215,14 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (max-width:768px) {
 	.qslogo {
 		margin-top: 5px;
+	}
+}
+
+@media screen and (max-width:480px) {
+	.qslogo {
+		max-width: 50px;
+		max-height: 50px;
+		margin-top: 15px;
 	}
 }
 
@@ -485,6 +502,16 @@ ul#cross-effect {
 	max-width: 90%;
 	padding: 20px 60px;
 	margin: 0 auto;
+}
+
+@media screen and (max-width:480px) {
+	.download {
+		padding: 60px 5px;
+	}
+
+	.download-box {
+		padding: 5px;		
+	}
 }
 
 .download-box h1{
