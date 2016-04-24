@@ -1,6 +1,6 @@
 
 /*
-URL: http://anirudhkhanna.github.io/QuickScript
+URL: http://anirudhkhanna.github.io/quickscript
 Author: Anirudh Khanna
 */
 
@@ -473,7 +473,7 @@ ul#cross-effect {
 }
 
 .download-box {
-	background: url("../img/download-bg.jpg");
+	background: url("../img/download-bg.jpg") #999;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-position: center center;
