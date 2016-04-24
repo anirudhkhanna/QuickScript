@@ -1,6 +1,6 @@
 
 /*
-URL: http://anirudhkhanna.github.io/quickscript
+URL: http://anirudhkhanna.github.io/QuickScript
 Author: Anirudh Khanna
 */
 
@@ -467,7 +467,7 @@ ul#cross-effect {
 
 /*-- Download --*/
 .download {
-	padding: 60px 40px;
+	padding: 60px 10px;
 	margin: 10px 0;
 	color: white;
 }
@@ -481,8 +481,10 @@ ul#cross-effect {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	height: 500px;
+	min-height: 500px;
+	max-width: 90%;
 	padding: 20px 60px;
+	margin: 0 auto;
 }
 
 .download-box h1{
@@ -498,8 +500,3 @@ ul#cross-effect {
 	line-height: 25px;
 	text-align: center;
 }
-
-
-
-
-
