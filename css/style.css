@@ -488,7 +488,7 @@ ul#cross-effect {
 }
 
 .gallery-cell {
-	width: 70%;
+	width: 80%;
 	height: 200px;
 	/* flex-box, center image in cell */
 	display: -webkit-box;
@@ -522,13 +522,21 @@ ul#cross-effect {
 	filter: none;
 }
 
+@media screen and (min-width: 610px) {
+	.gallery-cell {
+		width: 65%;
+		height: 250px;
+	}
+}
+
 @media screen and (min-width: 768px) {
 	.gallery-cell {
+		width: 75%;
 		height: 400px;
 	}
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (min-width: 980px) {
 	.gallery-cell {
 		width: 60%;
 	}
