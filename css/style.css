@@ -1,7 +1,7 @@
 
 /*
-URL: http://anirudhkhanna.github.io/QuickScript
-Author: Anirudh Khanna
+URI: http://anirudhkhanna.github.io/QuickScript
+Author: Anirudh Khanna, Akshay
 */
 
 
@@ -395,7 +395,7 @@ ul#cross-effect {
 
 /*-- Header Styling --*/
 .header {
-	background: url('../img/header-bg.jpg') #999;
+	background: url('../img/header-bg.jpg') #111;
 	color: #FFF;
 	padding: 100px 25px;
 	background-attachment: fixed;
