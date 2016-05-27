@@ -5,12 +5,15 @@ QuickScript can be used to create something as plain as a dictionary and somethi
 
 ![QuickScript Logo](https://github.com/anirudhkhanna/QuickScript/raw/master/logo.png)
 
+**Project website:** http://anirudhkhanna.github.io/QuickScript
+**GitHub Repository:** https://github.com/anirudhkhanna/QuickScript
+
 ### What's so special?
 QuickScript is special because of its simplicity and is intended to generate interest in beginners in the field of virtual conversational entities, more popularly known as chatbots.
 
 The features of QuickScript are inspired by AIML, but both the features and the way of writing code has been even more simplified. QuickScript not only provides the basic gear that one would appreciate when starting his/her own chatbot, but it also simplifies the task to such an extent that anyone can playfully learn the fundamentals of this art.
 
-### Behind the Idea
+### Behind the idea
 In 2015, I started working on a chatbot in AIML and was really impressed by the features it offers for the very purpose. I wanted to spread the field of virtual conversational agents to even more people and so I decided to take some wonderful features of AIML (wild cards, SRAI etc.), simplify them, and make the easiest script for designing such entities.
 
 ### The QuickScript Engine
@@ -239,7 +242,7 @@ Example:
 **SRAI in QuickScript:** As shown in the above example, SRAI can be used to redirect one pattern to another. When SRAI is used with a pattern, then that pattern cannot have its own replies.
 As compared to the SRAI of AIML, the functionality of SRAI in QuickScript is relatively limited and simple.
 
-### HOW IS SRAI SEARCHED?
+### HOW IS SRAI SEARCHED
 When a SRAI prefix is encountered after a pattern, the redirected pattern is searched IN THE SAME FILE FIRST. If the pattern is not found in that very file, then it is searched IN ALL THE INCLUDED FILES starting from the first included file as any normal pattern is searched in QuickScript.
 
 Consider two QS files which are included in the Engine at a time: “first.qs” and “second.qs”.
@@ -271,7 +274,7 @@ For an input “What is a bird”, the output will be “Birds are cute, feather
 
 In this case, the SRAI pattern “BIRD” would not match in the same file and then, every file will be searched for it from the start. The result would be “Birds are winged, warm-blooded, egg-laying vertebrates.” as found in the file “first.qs”.
 
-### USING SRAI WITH “EXIT”:
+### USING SRAI WITH “EXIT”
 We know that the query “exit” is used to go back to the starting screen of the program. Other patterns can also be made to carry out the function of “exit” with help of SRAI.
 
 Example:
@@ -319,7 +322,7 @@ This pattern will match with “What is Git” as well as “What is GitHub” a
 
 **Note:** The wildcard character ‘_’ can also be used in the above examples. The reason of having two different wildcard characters will be cleared in subsequent text.
 
-### USING `[STAR]` AND `[UNDERSCORE]`:
+### USING `[STAR]` AND `[UNDERSCORE]`
 Sometimes, it may be needed to use/display whatever text is there in place of the wildcard character. Here is when `[star]` and `[underscore]` come to our help.
 
 Consider the following:
@@ -376,3 +379,28 @@ BOT: For writing and drawing.
 ```
 
 **Note:** As of now, not more than two wildcard text replacements (as shown above) can be done, although any number of wildcard characters can be used in a pattern.
+
+## External Learning
+External Learning is a feature of QuickScript which allows the people chatting with your program to teach it new and better replies to their queries. When the user asks something and is not satisfied by the current reply, all he has to do is to give a {LEARN} command, telling the program what to say when the last asked query is made again. Note that the effect of learn command will take place only when the bot is reloaded.
+
+Suppose the following conversation is going on in the QuickScript Engine:
+
+```
+USER: Who is Sherlock Holmes?
+BOT: Is that a celebrity?	(From already stored entries.)
+
+USER: {LEARN} Sherlock Holmes is a fictional detective.
+BOT: Okay!
+     I will try to say "SHERLOCK HOLMES IS A FICTIONAL DETECTIVE."
+     when someone says "WHO IS SHERLOCK HOLMES” 
+     from the next time I'm loaded.
+```
+
+Now, when the user will exit the chatting interface and run it again, the program should prefer to give the answers it has recently learnt. This command works only when the External Learning feature is enabled. External Learning can be enabled or disabled from the home screen of the QuickScript Engine. This preference is stored in the “settings.conf” file as a 0 (for disabled) or 1 (for enabled).
+
+### HOW EXTERNAL LEARNING WORKS
+All the externally learnt data is written into the file “external_knowledge.qs” in the form of pattern and response pairs.
+Initially, if the file is not present, it is automatically created whenever a learn command is given by the user and the required data is written into it. Subsequent pattern-response pairs are written at the top of the file so that they take precedence over the older ones.
+Also, in case the file is not already included anywhere in “files.txt”, it is automatically included at the top when a learn command is used.
+
+**Note:** The information a chatbot acquires from the outside world may not always be correct/desirable. Therefore, it is always a good idea to keep monitoring and moderating the externally learnt knowledge of your bot.
