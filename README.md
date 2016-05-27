@@ -6,6 +6,7 @@ QuickScript can be used to create something as plain as a dictionary and somethi
 ![QuickScript Logo](https://github.com/anirudhkhanna/QuickScript/raw/master/logo.png)
 
 **Project website:** http://anirudhkhanna.github.io/QuickScript
+
 **GitHub Repository:** https://github.com/anirudhkhanna/QuickScript
 
 ### What's so special?
