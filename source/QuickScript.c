@@ -937,7 +937,7 @@ void learn_external_knowledge( char *p, char *r )   /* .......... Prepare and pr
 // SET includeexternalknowledgefileFlag TO 1 TO LATER INCLUDE EXTERNAL_KNOWLEDGE_FILE, IF EXTERNAL_KNOWLEDGE_TEMP_FILE IS NOT CURRENTY PRESENT IN FILENAMES:
 // ---------------------------------------------------------------------------------------------------------------------------------------------------------
 
-    int i, j, ispresent=0;
+    int i, ispresent=0;
     for(i=0; i<totalFiles; i++)
     {
         if(str_match(filenames[i], EXTERNAL_KNOWLEDGE_TEMP_FILE))  //Temp file of EXTERNAL_KNOWLEDGE_FILE would exist if EXTERNAL_KNOWLEDGE_FILE was included already, otherwise not.
