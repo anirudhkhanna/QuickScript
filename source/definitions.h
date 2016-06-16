@@ -1,6 +1,6 @@
 /*  QuickScript - An open-source platform for designing artificial conversational agents.
- *  Website:    www.anirudhkhanna.github.io/QuickScript
- *  GitHub:     www.github.com/anirudhkhanna/QuickScript
+ *  Website:    http://anirudhkhanna.github.io/QuickScript
+ *  GitHub:     http://github.com/anirudhkhanna/QuickScript
  *
  *  Copyright (C) 2016 QuickScript
  *  This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  *
  *  Contact:    Anirudh Khanna
  *              anirudhkhanna.cse@gmail.com
- *              www.anirudhkhanna.github.io/
+ *              http://anirudhkhanna.github.io/
  */
 
 

@@ -1,6 +1,6 @@
 /*  QuickScript - An open-source platform for designing artificial conversational agents.
- *  Website:    www.anirudhkhanna.github.io/QuickScript
- *  GitHub:     www.github.com/anirudhkhanna/QuickScript
+ *  Website:    http://anirudhkhanna.github.io/QuickScript
+ *  GitHub:     http://github.com/anirudhkhanna/QuickScript
  *
  *  Copyright (C) 2016 QuickScript
  *  This program is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
  *
  *  Contact:    Anirudh Khanna
  *              anirudhkhanna.cse@gmail.com
- *              www.anirudhkhanna.github.io/
+ *              http://anirudhkhanna.github.io/
  */
 
 
@@ -579,10 +579,19 @@ void reply_to_matched_pattern( FILE *fp )       /* .......... Fetch valid replie
 //                FILE RELATED FUNCTIONS
 // *******************************************************
 
-void count_files()      /* .......... Count the no of quickScript files to be included via "files.txt" .......... */
+void count_files()      /* .......... Count the no of quickScript files to be included via "files.txt". If "files.txt" is missing, then create it .......... */
 {
     totalFiles=0;
     FILE *_fnames=fopen("files.txt", "r");
+
+    if(_fnames==NULL)   //If "files.txt" is not present, then create it.
+    {
+        _fnames=fopen("files.txt", "w");
+        fputs("\nINCLUDE YOUR QUICKSCRIPT FILES HERE, IN A SET OF ANGLE BRACKETS. \nONLY THE FILES HAVING \".qs\" EXTENSION WILL BE INCLUDED.\n\n", _fnames);
+        fclose(_fnames);
+
+        _fnames=fopen("files.txt", "r");
+    }
 
     char _c, _filenm[10000];
     int _i=0;
@@ -683,7 +692,7 @@ void validate_files( char filenames[][10000] )       /* .......... Validate the 
                     \n\tPlease make sure that all entries in \"files.txt\" are valid.\n\t(Interrupt was encountered at: \"%s\")\
                     \n\n\n\
                     \n\n\n\tProgram will now go back to home screen.\n\tPress any key to continue... ", filenames[_i]);
-            fclose(_fp);
+            //fclose(_fp);  <-- We don't close the file pointer if the file was not found (file pointer is NULL).
             getch();
             home_screen();
         }
@@ -909,9 +918,9 @@ void learn_external_knowledge( char *p, char *r )   /* .......... Prepare and pr
         {
             fputc(ch, fout);
         }
+        fclose(fin);
     }
 
-    fclose(fin);
     fclose(fout);
 
     remove(EXTERNAL_KNOWLEDGE_FILE);
@@ -987,7 +996,7 @@ void get_external_learning_status()     /* .......... Get external learning stat
 
     if(fin==NULL)   //If the file is missing, create it and write "1" into it.
     {
-        fclose(fin);
+        //fclose(fin);  <-- We don't close the file pointer if the file was not found (file pointer is NULL).
 
         FILE *fout=fopen("settings.conf", "w");
         fprintf(fout, "%d", 1);
@@ -1029,7 +1038,7 @@ void count_entries_in_file( char *filename )      /* .......... Count the no of 
                 \n\tPlease make sure that all entries in \"files.txt\" are valid.\n\t(Interrupt was encountered at: \"%s\")\
                 \n\n\n\
                 \n\n\n\tProgram will now go back to home screen.\n\tPress any key to continue... ", filename);
-        fclose(fp);
+        //fclose(fp);   <-- We don't close the file pointer if the file was not found (file pointer is NULL).
         getch();
         home_screen();
     }
