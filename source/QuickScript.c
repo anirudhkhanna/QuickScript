@@ -23,7 +23,7 @@
 
 
 // *******************************************************
-//                REQUIRED HEADER
+//                REQUIRED FILE
 // *******************************************************
 
     #include "definitions.h"
@@ -73,7 +73,7 @@
 //                GLOBAL VARIABLES
 // *******************************************************
 
-    char choice, ch, filenames[10000][10000], prevuserquery[10000], previoususerquery[10000], secondprevioususerquery[10000], userquery[10000], pattern[10000], wildcardstar[10000], wildcardunderscore[10000];
+    char choice, ch, filenames[MAX_ARR_SIZE][MAX_ARR_SIZE], prevuserquery[MAX_ARR_SIZE], previoususerquery[MAX_ARR_SIZE], secondprevioususerquery[MAX_ARR_SIZE], userquery[MAX_ARR_SIZE], pattern[MAX_ARR_SIZE], wildcardstar[MAX_ARR_SIZE], wildcardunderscore[MAX_ARR_SIZE];
     int indF=0, indP=0, indUQ=0, indR=0, i=0, j=0, tempfilesFlag=0, foundFlag=0, sraiFlag=0, learningtoggleFlag=0, includeexternalknowledgefileFlag=0;
     unsigned long totalFiles=0, totalEntries=0, ctr=1, possibleReplies=0, cnt=1;
 
@@ -339,7 +339,7 @@ void run_quickScript()      /* .......... Run quickScript files .......... */
     if(sraiFlag!=-1)
     {
         printf("\n\n\n\tYOU:\t");
-        fgets(userquery, 10000, stdin);
+        fgets(userquery, MAX_ARR_SIZE, stdin);
         userquery[(strlen(userquery)-1)]='\0';      //We need to remove the extra newline taken by userquery[] because of using fgets().
 
 
@@ -525,7 +525,7 @@ void reply_to_matched_pattern( FILE *fp )       /* .......... Fetch valid replie
 
 // STORE VALID REPLIES IN AN ARRAY OF STRINGS:
 // -------------------------------------------
-    char reply[possibleReplies][10000];  //Declare an array of strings to store valid reply entries,
+    char reply[possibleReplies][MAX_ARR_SIZE];  //Declare an array of strings to store valid reply entries,
     for(i=0; i<possibleReplies; i++)    //and initialize each string with NULL.
         reply[i][0]='\0';
 
@@ -593,7 +593,7 @@ void count_files()      /* .......... Count the no of quickScript files to be in
         _fnames=fopen("files.txt", "r");
     }
 
-    char _c, _filenm[10000];
+    char _c, _filenm[MAX_ARR_SIZE];
     int _i=0;
 
     while((_c=fgetc(_fnames))!=EOF)
@@ -630,11 +630,11 @@ void count_files()      /* .......... Count the no of quickScript files to be in
 }
 
 
-void  store_files( char filenames[][10000] )     /* .......... Store the names of all the available quickScript files in an array of strings .......... */
+void  store_files( char filenames[][MAX_ARR_SIZE] )     /* .......... Store the names of all the available quickScript files in an array of strings .......... */
 {
     FILE *_fnames=fopen("files.txt", "r");
 
-    char _c, _filenm[10000];
+    char _c, _filenm[MAX_ARR_SIZE];
     int _i=0, _j=0;
 
     while((_c=fgetc(_fnames))!=EOF)
@@ -671,7 +671,7 @@ void  store_files( char filenames[][10000] )     /* .......... Store the names o
 }
 
 
-void validate_files( char filenames[][10000] )       /* .......... Validate the presence of all the available quickScript files .......... */
+void validate_files( char filenames[][MAX_ARR_SIZE] )       /* .......... Validate the presence of all the available quickScript files .......... */
 {
     int _i;
     FILE *_fp;
@@ -702,7 +702,7 @@ void validate_files( char filenames[][10000] )       /* .......... Validate the 
 }
 
 
-void append_newline_to_files( char filenames[][10000] )     /* .......... Append a newline character to included .qs files if not already present .......... */
+void append_newline_to_files( char filenames[][MAX_ARR_SIZE] )     /* .......... Append a newline character to included .qs files if not already present .......... */
 {
     int _i;
     char _c='\0', _newlinech='\n';
@@ -730,7 +730,7 @@ void append_newline_to_files( char filenames[][10000] )     /* .......... Append
 }
 
 
-void prepare_temp_files( char filenames[][10000] )      /* .......... Create *_temp.qs files corresponding to all included .qs files, in proper QS format .......... */
+void prepare_temp_files( char filenames[][MAX_ARR_SIZE] )      /* .......... Create *_temp.qs files corresponding to all included .qs files, in proper QS format .......... */
 {
     int _i=0, _j=0, _I=1;
     FILE *_fin;
@@ -803,7 +803,7 @@ void prepare_temp_files( char filenames[][10000] )      /* .......... Create *_t
             {
                 if(validate_prefix(_str)!=1)   //Validate prefix will return 1 if a valid prefix is detected. Otherwise, it returns 0.
                 {
-                    char _filenm[10000]="";
+                    char _filenm[MAX_ARR_SIZE]="";
                     strcpy(_filenm, filenames[_i]);     //Make a duplicate string of current filename.
                     int _M=strlen(_filenm)-8;   //To remove "_temp.qs" part from copied file name.
                     _filenm[_M]='\0';
@@ -863,7 +863,7 @@ void prepare_temp_files( char filenames[][10000] )      /* .......... Create *_t
 }
 
 
-void remove_temp_files( char filenames[][10000] )   /* .......... Delete the files whose names are in in filenames[][]. Intended for *_temp.qs files .......... */
+void remove_temp_files( char filenames[][MAX_ARR_SIZE] )   /* .......... Delete the files whose names are in in filenames[][]. Intended for *_temp.qs files .......... */
 {
     int _i=0;
     for(_i=0; _i<totalFiles; _i++)
@@ -878,7 +878,7 @@ void remove_temp_files( char filenames[][10000] )   /* .......... Delete the fil
 void learn_external_knowledge( char *p, char *r )   /* .......... Prepare and prepend a given pattern-response pair to EXTERNAL_KNOWLEDGE_FILE. Set includeexternalknowledgefileFlag to 1 if EXTERNAL_KNOWLEDGE_FILE is not already included in "files.txt" .......... */
 {
     FILE *fout, *fin;
-    char ptrn[10000], usrqry[10000], rply[10000];
+    char ptrn[MAX_ARR_SIZE], usrqry[MAX_ARR_SIZE], rply[MAX_ARR_SIZE];
     char ch, newlinech='\n';
 
     fout=fopen(EXTERNAL_KNOWLEDGE_INTERMEDIATE_FILE, "w");
@@ -1054,13 +1054,13 @@ void count_entries_in_file( char *filename )      /* .......... Count the no of 
 
 
 // *******************************************************
-//                  PERIPHERAL FUNCTIONS
+//                PERIPHERAL FUNCTIONS
 // *******************************************************
 
 int str_match( char *p, char *u )   /* .......... Match strings (ignoring the case of letters) .......... */
 {
-    char ptrn[10000];
-    char usrqry[10000];
+    char ptrn[MAX_ARR_SIZE];
+    char usrqry[MAX_ARR_SIZE];
     strcpy(ptrn, p);    //Duplicating the strings,
     strcpy(usrqry, u);  //So that original ones are not affected when lowercasing.
     str_lower(ptrn);   //Converting the duplicate strings to lowercase,
@@ -1077,8 +1077,8 @@ int str_match( char *p, char *u )   /* .......... Match strings (ignoring the ca
 
 int str_partial_match( char *p, char *u )   /* .......... Match strings (ignoring the case of letters) with '*' and '_' wild cards. Rightmost wild card sequences are also stored in strings wildcardstar[] and wildcardunderscore[] .......... */
 {
-    char ptrn[10000];
-    char usrqry[10000];
+    char ptrn[MAX_ARR_SIZE];
+    char usrqry[MAX_ARR_SIZE];
     strcpy(ptrn, p);    //Duplicating the strings,
     strcpy(usrqry, u);  //So that original ones are not affected when lowercasing.
     str_lower(ptrn);   //Converting the duplicate strings to lowercase,
@@ -1087,7 +1087,7 @@ int str_partial_match( char *p, char *u )   /* .......... Match strings (ignorin
     int i, j, I, J;
     int wcStart, wcEnd, wcInd, x;
 
-    char nextword[10000];
+    char nextword[MAX_ARR_SIZE];
     wildcardstar[0]='\0';
     wildcardunderscore[0]='\0';
 
@@ -1316,7 +1316,7 @@ int check_for_comment( char *str )      /* .......... Check for "//" prefix ....
 
 int check_for_learn_command( char *str )      /* .......... Check for "{LEARN}" or "{learn}" prefix .......... */
 {
-    char usrqry[10000];
+    char usrqry[MAX_ARR_SIZE];
     strcpy(usrqry, str);  //Duplicating the string, so that the original userquery[] is not affected when trimming, lowercasing etc.
 
     str_lower(usrqry);
@@ -1478,7 +1478,7 @@ void str_upper( char *str )   /* .......... Convert given string to uppercase ..
 
 
 // *******************************************************
-//                      MAIN FUNCTION
+//                MAIN FUNCTION
 // *******************************************************
 
 int main()      /* .......... Driver function of the program .......... */

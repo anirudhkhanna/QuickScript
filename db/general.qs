@@ -95,10 +95,6 @@
 ++ Plus, You are a great person and I love talking to you.  :)
 ## Because I like talking to you.
 
->>	OHM
-##	Unit of resistance
-##	Name of scientist
-
 >>	WHO R YOU
 ==	WHO ARE YOU
 
@@ -112,10 +108,6 @@
 ++	How are you, by the way?
 ##	I'm doing good!
 
->>	WHAT IS YOUR NAME
-## You can call me anything you like.
-++ Anirudh has not named me yet!
-
 >>	SEE YOU
 ==	EXIT
 
@@ -125,7 +117,6 @@
 >>	GREAT
 ##	Yeah!
 ##	What is so great?
-++	Do you mind me asking your favourite color?
 ##	Cool.
-##	Wonderful
+##	Wonderful.
 ++	:)

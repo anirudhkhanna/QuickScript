@@ -3,34 +3,10 @@ INCLUDE YOUR QUICKSCRIPT FILES HERE, IN A SET OF ANGLE BRACKETS.
 ONLY THE FILES HAVING ".qs" EXTENSION WILL BE INCLUDED.
 
 
-<databases/general.qs>
-
-
-<databases/wordnet-encyclopedia/encyclopedia_1.qs>
-<databases/wordnet-encyclopedia/encyclopedia_2.qs>
-<databases/wordnet-encyclopedia/encyclopedia_3.qs>
-<databases/wordnet-encyclopedia/encyclopedia_4.qs>
-<databases/wordnet-encyclopedia/encyclopedia_5.qs>
-<databases/wordnet-encyclopedia/encyclopedia_6.qs>
-<databases/wordnet-encyclopedia/encyclopedia_7.qs>
-<databases/wordnet-encyclopedia/encyclopedia_8.qs>
-<databases/wordnet-encyclopedia/encyclopedia_9.qs>
-<databases/wordnet-encyclopedia/encyclopedia_10.qs>
-<databases/wordnet-encyclopedia/encyclopedia_11.qs>
-<databases/wordnet-encyclopedia/encyclopedia_12.qs>
-<databases/wordnet-encyclopedia/encyclopedia_13.qs>
-<databases/wordnet-encyclopedia/encyclopedia_14.qs>
-<databases/wordnet-encyclopedia/encyclopedia_15.qs>
-<databases/wordnet-encyclopedia/encyclopedia_16.qs>
-<databases/wordnet-encyclopedia/encyclopedia_17.qs>
-<databases/wordnet-encyclopedia/encyclopedia_18.qs>
-<databases/wordnet-encyclopedia/encyclopedia_19.qs>
-<databases/wordnet-encyclopedia/encyclopedia_20.qs>
-<databases/wordnet-encyclopedia/encyclopedia_21.qs>
-<databases/wordnet-encyclopedia/encyclopedia_22.qs>
-<databases/wordnet-encyclopedia/encyclopedia_23.qs>
-<databases/wordnet-encyclopedia/encyclopedia_24.qs>
-
-
-<databases/pickup.qs>
-
+<db/salutations.qs>
+<db/sarang.qs>
+<db/bot.qs>
+<db/bot_profile.qs>
+<db/general.qs>
+<db/imponderables.qs>
+<db/pickup.qs>

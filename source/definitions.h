@@ -23,6 +23,17 @@
 
 
 // *******************************************************
+//                REQUIRED HEADER FILES
+// *******************************************************
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+    #include <ctype.h>
+    #include <time.h>
+
+
+// *******************************************************
 //                CHECKING THE PLATFORM
 // *******************************************************
 
@@ -48,20 +59,10 @@
 
 
 // *******************************************************
-//                INCLUDING REQUIRED FILES
-// *******************************************************
-
-    #include <stdio.h>
-    #include <stdlib.h>
-    #include <string.h>
-    #include <ctype.h>
-    #include <time.h>
-
-
-// *******************************************************
 //                MACRO DEFINITIONS
 // *******************************************************
 
+    #define MAX_ARR_SIZE 10000
     #define ESC 27
     #define LF 10
     #define CR 13
@@ -90,7 +91,7 @@
     #endif
 
 
-    #if defined PLATFORM_WIN
+    #if defined (PLATFORM_WIN) || defined (PLATFORM_DOS)
         #undef CLEARSCREEN
         #define CLEARSCREEN(){if(system(NULL)) system("cls||clear");}
     #elif defined PLATFORM_POSIX
