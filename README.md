@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # QuickScript
 
 QuickScript is a simple and easy to learn special-purpose language which can be used to design artificial conversational agents and other programs that involve textual dialogue between humans and computers.
@@ -405,3 +406,7 @@ Initially, if the file is not present, it is automatically created whenever a le
 Also, in case the file is not already included anywhere in “files.txt”, it is automatically included at the top when a learn command is used.
 
 **Note:** The information a chatbot acquires from the outside world may not always be correct/desirable. Therefore, it is always a good idea to keep monitoring and moderating the externally learnt knowledge of your bot.
+=======
+# QuickScript Website
+Website of the QuickScript project. (http://anirudhkhanna.github.io/QuickScript)
+>>>>>>> b678c83d67208ddc6f15f848594b7c695266538b
